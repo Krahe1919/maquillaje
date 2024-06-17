@@ -1,12 +1,26 @@
+"use client"
+
 import Image from "next/image";
 import { Fondo } from "./components/fondo";
+import React, { useState } from 'react';
+import Modal from './components/modal';
 // import { Fondo } from "./components/fondo";
 
 
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div className="mx-[16%] px-4 sm:px-6 lg:px-8 md:w-[65%] mt-36">
+    <div className="mx-[20%] px-4 sm:px-6 lg:px-8 md:w-[65%] mt-36">
     <div className="mb-64 ">
       <div className="py-12 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 mb-52">
         <img src="header.png"/>
@@ -20,7 +34,7 @@ export default function Home() {
       </div>
     </div>
     <div className="flex">
-      <div className="bg-pink-100  space-y-16 px-6 md:px-20 py-12 w-[60%]">
+      <div className="bg-pink-100  space-y-16 px-6 md:px-20 py-12 w-[50%]">
         <span className="text-green font-bold text-2xl">
           STEP 1
         </span>
@@ -32,24 +46,31 @@ export default function Home() {
           <img src="/video.png" className=" inset-0 w-full h-full object-cover"/>
         </div>
       </div>
-      <div className="bg-gray-400 md:px-20 py-12 w-[40%]">
+      <div className="bg-white space-y-16 px-6 md:px-20 py-12 w-[40%] ">
           <span className="text-green font-bold text-2xl">
-            STEP 2
+            STEP 2 
           </span>
-          <div className="flex flex-col items-center justify-between h-full">
-            <h2 className="font-bold sm:text-7xl mb-8">
+          <h2 className="font-bold sm:text-7xl">
               TAKE THE COURSE
             </h2> 
-                
-                <div className="mb-64">
-                  <img src="/boton.png"/>
-                  <button className="w-full h-32 bg-red-600 text-white text-4xl px-32">SUSCRIBIRSE OF COURSE</button>
-                </div>
+          <div className=" flex flex-col justify-between items-center h-[30vh]">
+                  <div className="h-64"></div>
+                  <div className="h-full">
+                    <img src="/boton.png"/>
+                  </div>
+                <button onClick={openModal} className="w-full h-64 bg-red-700 hover:bg-red-800 text-white text-4xl px-32 font-bold">SUSCRIBIRSE OF COURSE</button>
+                  <Modal isOpen={isModalOpen} onClose={closeModal}>
+                    
+                </Modal>
           </div>
 
         </div>
     </div>
+    <footer className="flex items-center justify-center text-3xl py-32 w-full ">
+      <div>
+      ©2023 Mirage Beauty Coach. All rights reserved.  Privacy Policy  |  Created with Leadpages
+      </div>
+    </footer>
   </div>
-  
   );
 }
