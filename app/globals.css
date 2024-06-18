@@ -8,9 +8,18 @@
   background-position: center; /* Centra la imagen */
 }
 
+/* globals.css */
+@layer components {
+  .bg-background {
+      @apply bg-no-repeat bg-center bg-cover;
+      background-image: url('/fondo.png'); /* Asegúrate de que la ruta a tu imagen sea correcta */
+    }
+  }
 
+  
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
