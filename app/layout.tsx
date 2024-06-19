@@ -16,7 +16,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`text-black ${inter.className} `}>{children}
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        {/* Otros meta tags y estilos globales */}
+      </head>
+      <body className={`text-black ${inter.className} min-h-screen`}>
+        <div className="flex h-screen">
+          <main className="flex-grow pr-5">
+            {children}
+          </main>
+          <aside className="flex-shrink-0 w-full h-screen fixed right-0 top-0 z-[-20] opacity-50">
+              <div className="flex h-full">
+                <div className="w-1/2">
+                  <img src="/fondo2.png" alt="Background Part 1" className="w-full h-full object-cover" />
+                </div>
+                <div className="w-1/2">
+                  <img src="/fondo.png" alt="Background Part 2" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </aside>
+        </div>
       </body>
     </html>
   );
