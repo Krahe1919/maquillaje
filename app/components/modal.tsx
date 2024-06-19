@@ -22,9 +22,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   const [formErrors, setFormErrors] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Actualiza el estado de formData basado en el cambio detectado en el input
+    console.log("handleChange called", e.target.name, e.target.value); // Agrega esta línea para depurar
     setFormData({...formData, [e.target.name]: e.target.value });
   };
+  
 
   const handleSubmit = () => {
     let errors = [];
@@ -133,7 +134,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
               </div>
             )}
             <div className="md:px-12">
-              <p className="text-1xl">Error</p>
+              <p className="text-1xl"></p>
               {formErrors && <p className="text-red-500">{formErrors}</p>}
             </div>
           <div className="py-4 md:px-12 flex items-center justify-center ">
